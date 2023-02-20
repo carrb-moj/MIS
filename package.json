@@ -1,0 +1,27 @@
+{
+  "name": "mis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carrb-moj/MIS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carrb-moj/MIS/issues"
+  },
+  "homepage": "https://github.com/carrb-moj/MIS#readme",
+  "jest": {
+    "verbose": true
+  },
+  "devDependencies": {
+    "jest": "^29.4.3"
+  }
+}

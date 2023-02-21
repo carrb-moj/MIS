@@ -6,6 +6,21 @@ version: 2.1
 orbs:
   node: circleci/node@4.7
 
+jobs:
+  trigger-selenium-pipeline:
+    docker: 
+      - image: cimg/base:2021.11
+    resource_class: small
+    steps:
+      - run:
+          name: Execute selenium-test pipeline
+          command: |
+            curl --request POST \
+              --url https://circleci.com/api/v2/project/gh/carrb-moj/selenium-test/pipeline \
+              --header "Circle-Token: $circleci_token" \
+              --header "content-type: application/json" \
+              --header "Accept: application/json"
+
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
@@ -19,16 +34,6 @@ workflows:
           version: '16.10'
           # If you are using yarn, change the line below from "npm" to "yarn"
           pkg-manager: npm
-      - trigger-new-pipeline:
-          docker: 
-            - image: cimg/base:2021.11
-          resource_class: small
-          steps:
-            - run:
-                name: Ping another pipeline
-                command: |
-                  curl --request POST \
-                    --url https://circleci.com/api/v2/project/gh/carrb-moj/selenium-test/pipeline \
-                    --header "Circle-Token: $circleci_token" \
-                    --header "content-type: application/json" \
-                    --header "Accept: application/json"
+      - trigger-selenium-pipeline:
+          requires:
+            - node/test

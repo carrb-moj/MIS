@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Execute selenium-test pipeline
           command: |
-            export ACTION="selenimum"
+            export ACTION="selenium"
             generate_post_data()
             {
               cat \<<EOF

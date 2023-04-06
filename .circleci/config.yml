@@ -21,7 +21,7 @@ jobs:
               cat \<<EOF
             {
               "parameters": { 
-                "action": $ACTION }
+                "action": "$ACTION" }
               } 
             }
             EOF

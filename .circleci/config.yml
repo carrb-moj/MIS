@@ -18,7 +18,7 @@ jobs:
             export ACTION="selenimum"
             generate_post_data()
             {
-              cat <<EOF
+              cat \<<EOF
             {
               "parameters": { 
                 "action": $ACTION }
